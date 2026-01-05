@@ -2,7 +2,7 @@
 
 ### Synaptix Frontier AI Hackathon | Track 2: Advanced Understanding
 
-**Team:** TEAM
+**Team:** TEAM  
 **Status:** ✅ Solved (O(1) Inference Memory Achieved)
 
 ---
@@ -35,17 +35,17 @@ Unlike Transformers which use GELU (causing ~99% active neurons), our BDH model 
 
 Below is the evolution of sparsity during our training run. Dark Blue areas are active; White areas are effectively "off" (saving energy).
 
-### Phase 1: Initialization (Dense & Noisy)
-At step 0, the model is random and dense. It hasn't learned to specialize yet.
-![Sparsity Iteration 1](sparsity_init.png)
+### Phase 1: Step 100 (Early Structure)
+The model begins to form vertical "bands" as it learns basic syntax.
+![Sparsity Step 100](sparsity_init.png)
 
-### Phase 2: Learning Structure (Emerging Patterns)
-By step 100, you can see vertical "bands" forming. The model is starting to allocate specific neurons to specific tokens.
-![Sparsity Iteration 2](sparsity_mid.png)
+### Phase 2: Step 500 (Specialization)
+Distinct patterns emerge as neurons begin to specialize in specific token types.
+![Sparsity Step 500](sparsity_mid.png)
 
-### Phase 3: Final Convergence (The "Barcode")
-By step 400, the model has achieved **~43% Sparsity**. The distinct white gaps represent the "Inactive Zone"—compute resources that are reserved, not wasted.
-![Sparsity Iteration 3](sparsity_final.png)
+### Phase 3: Step 5000 (Final "Barcode")
+By step 5000, the model achieves deep sparsity. The distinct white gaps represent the "Inactive Zone"—compute resources that are reserved, not wasted.
+![Sparsity Step 5000](sparsity_final.png)
 
 ---
 
@@ -56,7 +56,6 @@ By step 400, the model has achieved **~43% Sparsity**. The distinct white gaps r
 | **Inference Memory** | Linear Growth ($O(T)$) | **Constant ($O(1)$)** | 🏆 **BDH** |
 | **Crash Point (T4 GPU)** | ~12,500 Tokens | **Never** (>50k tested) | 🏆 **BDH** |
 | **Neuron Activity** | ~99.9% (Dense) | **~43.1% (Sparse)** | 🏆 **BDH** |
-| **Training Loss (400 steps)** | 2.33 | **1.97** | 🏆 **BDH** |
 
 ---
 
