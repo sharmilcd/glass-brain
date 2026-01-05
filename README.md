@@ -65,3 +65,18 @@ By step 5000, the model achieves deep sparsity. The distinct white gaps represen
 Run the recurrent kernel to see memory stay flat at 152MB for 50,000+ tokens.
 ```bash
 python bdh_recurrent.py
+```
+### 2. Run the "Transformer Crash" Test
+Run the baseline stress test. This script attempts to force 12,000 tokens into a standard GPT-2 model, triggering an Out-Of-Memory (OOM) crash on T4 GPUs.
+```bash
+python transformer_final_crash.py
+```
+### 3. Generate Sparsity Heatmaps (Training)
+Run the training comparison script. This will train both models side-by-side and generate the "Barcode" heatmaps at steps 0, 100, and 400 to visualize the emergence of sparsity.
+```bash
+python train_compare.py
+```
+### 4. Generate Memory Benchmarks
+Run the profiling script to generate the VRAM usage graphs (Red vs Blue lines).
+```bash
+python benchmark_final_v2.py
