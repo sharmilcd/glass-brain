@@ -16,7 +16,7 @@ To generate the 10,000th token, they must store a Key-Value (KV) cache for the p
 ## 💡 The Solution: Recurrent Linear Attention (BDH)
 We implemented the **Dragon Hatchling (BDH)** architecture in a pure **Recurrent Inference Mode**.
 Instead of caching history (appending to a list), we compress history into a **Fixed-Size Hebbian State Matrix**.
-* **Result:** Memory usage is **Constant ($O(1)$)**.
+* **Result:** Memory usage is **Constant (O(1))**.
 * **Capability:** Theoretical **Infinite Context** on consumer hardware.
 
 ---
@@ -53,7 +53,7 @@ By step 5000, the model achieves deep sparsity. The distinct white gaps represen
 
 | Metric | Transformer (GPT-2) | Dragon Hatchling (BDH) | Winner |
 | :--- | :--- | :--- | :--- |
-| **Inference Memory** | Linear Growth ($O(T)$) | **Constant ($O(1)$)** | 🏆 **BDH** |
+| **Inference Memory** | Linear Growth (O(T)) | **Constant (O(1))** | 🏆 **BDH** |
 | **Crash Point (T4 GPU)** | ~12,500 Tokens | **Never** (>50k tested) | 🏆 **BDH** |
 | **Neuron Activity** | ~99.9% (Dense) | **~43.1% (Sparse)** | 🏆 **BDH** |
 
